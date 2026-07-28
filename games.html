@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя коллекция игр Nintendo Switch</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #e60012; /* Nintendo Red */
+            --text-color: #ffffff;
+            --text-secondary: #aaaaaa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(230, 0, 18, 0.4);
+        }
+
+        .img-wrapper {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background-color: #2a2a2a;
+            position: relative;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover .img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .game-title {
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(30,30,30,1) 0%, rgba(20,20,20,1) 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nintendo Switch Games</h1>
+        <p>Нажми на обложку, чтобы перейти на страницу игры в eShop</p>
+    </header>
+
+    <div class="games-grid">
+
+        <!-- Сюда вставляй свои ссылки (href) и картинки (src) -->
+
+        <a href="https://www.nintendo.com/us/store/products/wingspan-plus-european-plus-oceania-plus-asia-switch/" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1065/b_white/f_auto/q_auto/store/software/switch/70010000028355/fe9eca4506f8b405f535e38f873115a84a2ccd52405a5ba67d77bd48d7072c13" alt="WINGSPAN"></div>
+            <div class="game-title">WINGSPAN</div>
+        </a>
+
+        <a href="https://www.nintendo.com/us/store/products/reanimal-digital-deluxe-edition-switch-2/" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1065/b_white/f_auto/q_auto/store/software/switch2/70010000109876/11885e0884bfcb836246ae6badd405415460af20ec56cc168be493c3ea94621a" alt="REANIMAL"></div>
+            <div class="game-title">REANIMAL</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Teenage Mutant Ninja Turtles: Splintered Fate"></div>
+            <div class="game-title">TMNT: Splintered Fate</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Split Fiction"></div>
+            <div class="game-title">Split Fiction</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Moving Out 2"></div>
+            <div class="game-title">Moving Out 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Fall Guys"></div>
+            <div class="game-title">Fall Guys</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="D&D Neverwinter Nights 2: Enhanced Edition"></div>
+            <div class="game-title">D&D Neverwinter Nights 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Grounded"></div>
+            <div class="game-title">Grounded</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Rubber Bandits"></div>
+            <div class="game-title">Rubber Bandits</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Project Winter"></div>
+            <div class="game-title">Project Winter</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="STARSEEKER: Astroneer Expeditions"></div>
+            <div class="game-title">STARSEEKER: Astroneer Expeditions</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Matchpoint - Tennis Championships"></div>
+            <div class="game-title">Matchpoint - Tennis</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Aragami"></div>
+            <div class="game-title">Aragami</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Aragami 2"></div>
+            <div class="game-title">Aragami 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Trine 5: A Clockwork Conspiracy"></div>
+            <div class="game-title">Trine 5</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="CarX Drift Racing Online"></div>
+            <div class="game-title">CarX Drift Racing Online</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Dead by Daylight"></div>
+            <div class="game-title">Dead by Daylight</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Ghostbusters: Spirits Unleashed"></div>
+            <div class="game-title">Ghostbusters: Spirits Unleashed</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="The Settlers®: New Allies"></div>
+            <div class="game-title">The Settlers®: New Allies</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Mantis Burn Racing"></div>
+            <div class="game-title">Mantis Burn Racing</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Minecraft Dungeons"></div>
+            <div class="game-title">Minecraft Dungeons</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Never Grave: The Witch and The Curse"></div>
+            <div class="game-title">Never Grave</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Sonic Racing: CrossWorlds"></div>
+            <div class="game-title">Sonic Racing: CrossWorlds</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Disney Speedstorm"></div>
+            <div class="game-title">Disney Speedstorm</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Minecraft Legends"></div>
+            <div class="game-title">Minecraft Legends</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Rocket League"></div>
+            <div class="game-title">Rocket League</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Fantasy Strike"></div>
+            <div class="game-title">Fantasy Strike</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Brawlhalla"></div>
+            <div class="game-title">Brawlhalla</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Nickelodeon All-Star Brawl 2"></div>
+            <div class="game-title">Nickelodeon All-Star Brawl 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Breakers Collection"></div>
+            <div class="game-title">Breakers Collection</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Gloomhaven"></div>
+            <div class="game-title">Gloomhaven</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Oppidum"></div>
+            <div class="game-title">Oppidum</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Palia"></div>
+            <div class="game-title">Palia</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Marvel Cosmic Invasion"></div>
+            <div class="game-title">Marvel Cosmic Invasion</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Warframe"></div>
+            <div class="game-title">Warframe</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Need for Speed™ Hot Pursuit Remastered"></div>
+            <div class="game-title">NFS Hot Pursuit Remastered</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="No Man's Sky"></div>
+            <div class="game-title">No Man's Sky</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Apex Legends"></div>
+            <div class="game-title">Apex Legends</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Omega Strikers"></div>
+            <div class="game-title">Omega Strikers</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Among Us"></div>
+            <div class="game-title">Among Us</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Temtem"></div>
+            <div class="game-title">Temtem</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Overcooked! 2"></div>
+            <div class="game-title">Overcooked! 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Overcooked! All You Can Eat"></div>
+            <div class="game-title">Overcooked! All You Can Eat</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Worms Rumble"></div>
+            <div class="game-title">Worms Rumble</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Unrailed 2"></div>
+            <div class="game-title">Unrailed 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Bandit Trap"></div>
+            <div class="game-title">Bandit Trap</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Content Warning"></div>
+            <div class="game-title">Content Warning</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Virtua Fighter 5 R.E.V.O. World Stage"></div>
+            <div class="game-title">Virtua Fighter 5 R.E.V.O.</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="HeadHunters"></div>
+            <div class="game-title">HeadHunters</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Tony Hawk's™ Pro Skater 3 + 4"></div>
+            <div class="game-title">Tony Hawk's™ Pro Skater 3 + 4</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Sid Meier's Civilization® VII"></div>
+            <div class="game-title">Civilization® VII</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="NEW MONOPOLY"></div>
+            <div class="game-title">NEW MONOPOLY</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Warhammer Age of Sigmar: Storm Ground"></div>
+            <div class="game-title">Warhammer AoS: Storm Ground</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Biped"></div>
+            <div class="game-title">Biped</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Biped 2"></div>
+            <div class="game-title">Biped 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Rush Rally 3"></div>
+            <div class="game-title">Rush Rally 3</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Harry Potter: Quidditch Champions"></div>
+            <div class="game-title">Harry Potter: Quidditch Champions</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="My Time at Sandrock Online"></div>
+            <div class="game-title">My Time at Sandrock Online</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Headbangers: Rhythm Royale"></div>
+            <div class="game-title">Headbangers: Rhythm Royale</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Fortnite"></div>
+            <div class="game-title">Fortnite</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Stumble Guys"></div>
+            <div class="game-title">Stumble Guys</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Ultimate Chicken Horse"></div>
+            <div class="game-title">Ultimate Chicken Horse</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Super Animal Royale"></div>
+            <div class="game-title">Super Animal Royale</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Asphalt Legends"></div>
+            <div class="game-title">Asphalt Legends</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="World of Tanks Blitz"></div>
+            <div class="game-title">World of Tanks Blitz</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="PowerWash Simulator"></div>
+            <div class="game-title">PowerWash Simulator</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Quake"></div>
+            <div class="game-title">Quake</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Quake II"></div>
+            <div class="game-title">Quake II</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Wargroove"></div>
+            <div class="game-title">Wargroove</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Wargroove 2"></div>
+            <div class="game-title">Wargroove 2</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Disney Dreamlight Valley"></div>
+            <div class="game-title">Disney Dreamlight Valley</div>
+        </a>
+
+        <a href="https://www.nintendo.com" target="_blank" class="game-card">
+            <div class="img-wrapper"><img src="https://via.placeholder.com/300x400" alt="Sky: Children of the Light"></div>
+            <div class="game-title">Sky: Children of the Light</div>
+        </a>
+
+    </div>
+
+</body>
+</html>
