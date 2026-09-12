@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards Test - LG E960 Nexus 4 Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            justify-items: center;
+        }
+
+        /* ========== VARIANT 01 - Minimalist Clean ========== */
+        .card-01 {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .card-01:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        }
+
+        .card-01-badges {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .badge-01 {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-hit-01 { background: #ff6b6b; color: white; }
+        .badge-sale-01 { background: #4ecdc4; color: white; }
+        .badge-percent-01 { background: #ffe66d; color: #2d3748; }
+
+        .card-01-image-wrapper {
+            position: relative;
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-01-actions {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+        }
+
+        .card-01:hover .card-01-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .action-btn-01 {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+
+        .action-btn-01:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .card-01-placeholder {
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-01-content {
+            padding: 24px;
+        }
+
+        .card-01-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .card-01-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .stars-01 {
+            color: #ffd700;
+            font-size: 1rem;
+        }
+
+        .reviews-01 {
+            color: #a0aec0;
+            font-size: 0.85rem;
+        }
+
+        .card-01-price-block {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .price-01 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .old-price-01 {
+            font-size: 1rem;
+            color: #a0aec0;
+            text-decoration: line-through;
+        }
+
+        .card-01-colors {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .color-dot-01 {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .color-dot-01:hover,
+        .color-dot-01.active {
+            transform: scale(1.2);
+            border-color: #667eea;
+        }
+
+        .card-01-status {
+            color: #e53e3e;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .card-01-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-01 {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary-01 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary-01:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary-01 {
+            background: #edf2f7;
+            color: #4a5568;
+        }
+
+        .btn-secondary-01:hover {
+            background: #e2e8f0;
+        }
+
+        .card-01-code {
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: #a0aec0;
+        }
+
+        /* ========== VARIANT 02 - Premium Luxury ========== */
+        .card-02 {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .card-02:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-color: #d4af37;
+        }
+
+        .card-02-header {
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card-02-sku {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .card-02-favorite {
+            background: none;
+            border: none;
+            color: #d4af37;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-02-favorite:hover {
+            transform: scale(1.2);
+        }
+
+        .card-02-image-area {
+            height: 260px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .card-02-placeholder {
+            width: 180px;
+            height: 180px;
+            border: 2px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .card-02-badges-corner {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: flex;
+        }
+
+        .badge-02 {
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 6px 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .card-02-body {
+            padding: 25px;
+        }
+
+        .card-02-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .card-02-rating-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .stars-02 {
+            color: #d4af37;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        .reviews-02 {
+            color: #6c757d;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        .card-02-price-display {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .price-02 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #1a1a1a;
+        }
+
+        .old-price-02 {
+            color: #adb5bd;
+            text-decoration: line-through;
+            font-size: 1.1rem;
+        }
+
+        .discount-02 {
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 4px 10px;
+            border-radius: 2px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .card-02-color-selector {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .color-option-02 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #dee2e6;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .color-option-02:hover,
+        .color-option-02.active {
+            border-color: #d4af37;
+            transform: scale(1.1);
+        }
+
+        .color-option-02.active::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.8rem;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+
+        .card-02-status-badge {
+            background: #f8f9fa;
+            color: #dc3545;
+            padding: 8px 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #dc3545;
+        }
+
+        .card-02-actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-02 {
+            padding: 12px;
+            border: 1px solid #1a1a1a;
+            background: white;
+            color: #1a1a1a;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-02:hover {
+            background: #1a1a1a;
+            color: #d4af37;
+        }
+
+        .btn-02-full {
+            grid-column: 1 / -1;
+            background: #1a1a1a;
+            color: #d4af37;
+            border-color: #1a1a1a;
+        }
+
+        .btn-02-full:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        /* ========== VARIANT 03 - Tech Futuristic ========== */
+        .card-03 {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+            border: 1px solid #00d4ff;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 390px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+
+        .card-03::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88, #00d4ff);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .card-03-corner-decor {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 60px;
+            height: 60px;
+            border-top: 2px solid #00d4ff;
+            border-right: 2px solid #00d4ff;
+        }
+
+        .card-03-image-section {
+            height: 240px;
+            background: radial-gradient(circle at center, #1a1a3e 0%, #0f0f23 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-03-grid-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .card-03-placeholder {
+            width: 160px;
+            height: 160px;
+            border: 2px dashed #00d4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 212, 255, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-03-hologram {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(0, 212, 255, 0.1) 50%, transparent 60%);
+            animation: hologram 4s ease-in-out infinite;
+        }
+
+        @keyframes hologram {
+            0%, 100% { transform: translateX(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .card-03-badges-tech {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .badge-03 {
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .card-03-content {
+            padding: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .card-03-title {
+            color: #00d4ff;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .card-03-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .stat-03 {
+            text-align: center;
+        }
+
+        .stat-value-03 {
+            color: #00ff88;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .stat-label-03 {
+            color: #6c7a99;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .card-03-price-tech {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-03 {
+            color: #00ff88;
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .old-price-03 {
+            color: #6c7a99;
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+
+        .card-03-colors-tech {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .color-tech-03 {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #00d4ff;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .color-tech-03:hover,
+        .color-tech-03.active {
+            box-shadow: 0 0 10px #00d4ff;
+            transform: scale(1.15);
+        }
+
+        .card-03-status-tech {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid #dc3545;
+            color: #dc3545;
+            padding: 6px 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 0.75rem;
+        }
+
+        .card-03-buttons-tech {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-03 {
+            background: transparent;
+            border: 1px solid #00d4ff;
+            color: #00d4ff;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-03:hover {
+            background: #00d4ff;
+            color: #0f0f23;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-03-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+            border: none;
+            color: #0f0f23;
+            font-weight: 600;
+        }
+
+        .btn-03-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(0, 212, 255, 0.6);
+        }
+
+        /* ========== VARIANT 04 - Glassmorphism ========== */
+        .card-04 {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 370px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .card-04:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(31, 38, 135, 0.25);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .card-04-bg-gradient {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #fd79a8, #ff6b6b);
+            animation: rotateBg 10s linear infinite;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .card-04-image-glass {
+            height: 250px;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-04-floating-bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bubble:nth-child(1) { width: 40px; height: 40px; top: 20%; left: 10%; animation-delay: 0s; }
+        .bubble:nth-child(2) { width: 30px; height: 30px; top: 60%; left: 80%; animation-delay: 1s; }
+        .bubble:nth-child(3) { width: 50px; height: 50px; top: 40%; left: 70%; animation-delay: 2s; }
+        .bubble:nth-child(4) { width: 25px; height: 25px; top: 80%; left: 30%; animation-delay: 3s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .card-04-placeholder {
+            width: 170px;
+            height: 170px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card-04-badges-glass {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .badge-04 {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .card-04-content-glass {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-04-title {
+            color: white;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .card-04-rating-glass {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .stars-04 {
+            color: #ffd700;
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .reviews-04 {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+        }
+
+        .card-04-price-glass {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-04 {
+            color: white;
+            font-size: 1.7rem;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .old-price-04 {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+
+        .card-04-colors-glass {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .color-glass-04 {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-glass-04:hover,
+        .color-glass-04.active {
+            border-color: white;
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .card-04-status-glass {
+            background: rgba(220, 53, 69, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        .card-04-actions-glass {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .btn-04 {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-04:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-04-primary {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            font-weight: 600;
+        }
+
+        .btn-04-primary:hover {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-04-code-glass {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.75rem;
+        }
+
+        /* ========== VARIANT 05 - Bold Asymmetric ========== */
+        .card-05 {
+            background: white;
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            overflow: visible;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .card-05:hover {
+            transform: rotate(-2deg) scale(1.03);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .card-05-diagonal-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        .card-05-content-asymmetric {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 45% 55%;
+            min-height: 450px;
+        }
+
+        .card-05-left {
+            padding: 20px 15px 20px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-05-right {
+            background: white;
+            padding: 25px 25px 25px 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-05-badges-async {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            max-width: 150px;
+        }
+
+        .badge-05 {
+            background: white;
+            color: #ff6b6b;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .card-05-image-async {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-05-image-async::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .card-05-placeholder {
+            width: 140px;
+            height: 140px;
+            background: rgba(255,255,255,0.2);
+            border: 2px dashed rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-05-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #2d3748;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .card-05-rating-async {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .stars-05 {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .reviews-05 {
+            color: #a0aec0;
+            font-size: 0.8rem;
+        }
+
+        .card-05-price-async {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .price-05 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ff6b6b;
+        }
+
+        .old-price-05 {
+            color: #cbd5e0;
+            text-decoration: line-through;
+            font-size: 1rem;
+        }
+
+        .card-05-colors-async {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .color-async-05 {
+            width: 22px;
+            height: 22px;
+            border-radius: 4px;
+            border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .color-async-05:hover,
+        .color-async-05.active {
+            border-color: #ff6b6b;
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .card-05-status-async {
+            background: #fff5f5;
+            color: #c53030;
+            padding: 6px 12px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border-left: 3px solid #c53030;
+        }
+
+        .card-05-actions-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .btn-05 {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-05-primary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+
+        .btn-05-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-05-secondary {
+            background: #edf2f7;
+            color: #4a5568;
+        }
+
+        .btn-05-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-05-ghost {
+            background: transparent;
+            color: #718096;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-05-ghost:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+        }
+
+        .card-05-icons {
+            position: absolute;
+            bottom: 20px;
+            left: 25px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .icon-btn-05 {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+            color: #ff6b6b;
+        }
+
+        .icon-btn-05:hover {
+            background: #ff6b6b;
+            color: white;
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .card-05-code {
+            position: absolute;
+            bottom: 20px;
+            right: 25px;
+            font-size: 0.75rem;
+            color: #cbd5e0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1440px) {
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .card-05-content-asymmetric {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .card-05-left,
+            .card-05-right {
+                padding: 20px;
+            }
+
+            .card-05-diagonal-bg {
+                width: 100%;
+                height: 40%;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .card-01,
+            .card-02,
+            .card-03,
+            .card-04,
+            .card-05 {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            .card-01-content,
+            .card-02-body,
+            .card-03-content,
+            .card-04-content-glass,
+            .card-05-left,
+            .card-05-right {
+                padding: 15px;
+            }
+        }
+
+        /* Label for each variant */
+        .variant-label {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Дисплей LG E960 Nexus 4</h1>
+        <p class="subtitle">5 унікальних варіантів карток товару</p>
+        
+        <div class="cards-grid">
+            <!-- Variant 01 -->
+            <div class="card-wrapper">
+                <div class="variant-label">01 — Minimalist Clean</div>
+                <div class="card-01">
+                    <div class="card-01-badges">
+                        <span class="badge-01 badge-hit-01">Хіт</span>
+                        <span class="badge-01 badge-sale-01">Акція</span>
+                        <span class="badge-01 badge-percent-01">-40%</span>
+                    </div>
+                    
+                    <div class="card-01-actions">
+                        <button class="action-btn-01" title="В избранное">♡</button>
+                        <button class="action-btn-01" title="Сравнение">⚖</button>
+                        <button class="action-btn-01" title="Быстрый просмотр">👁</button>
+                    </div>
+                    
+                    <div class="card-01-image-wrapper">
+                        <div class="card-01-placeholder">
+                            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="20" y="15" width="60" height="70" rx="3" stroke="white" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="15" stroke="white" stroke-width="2"/>
+                                <line x1="50" y1="35" x2="50" y2="65" stroke="white" stroke-width="2"/>
+                                <line x1="35" y1="50" x2="65" y2="50" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="card-01-content">
+                        <h3 class="card-01-title">Дисплей LG E960 Nexus 4 із сенсором і панеллю</h3>
+                        
+                        <div class="card-01-rating">
+                            <div class="stars-01">★★★★★</div>
+                            <span class="reviews-01">2 відгуки</span>
+                        </div>
+                        
+                        <div class="card-01-price-block">
+                            <span class="price-01">560 грн</span>
+                            <span class="old-price-01">930 грн</span>
+                        </div>
+                        
+                        <div class="card-01-colors">
+                            <div class="color-dot-01 active" style="background: #000000;" data-color="black"></div>
+                            <div class="color-dot-01" style="background: #ffffff; border: 1px solid #ddd;" data-color="white"></div>
+                            <div class="color-dot-01" style="background: #1a1a3e;" data-color="navy"></div>
+                        </div>
+                        
+                        <div class="card-01-status">Немає в наявності</div>
+                        
+                        <div class="card-01-buttons">
+                            <button class="btn-01 btn-primary-01">Купити в 1 клік</button>
+                            <button class="btn-01 btn-secondary-01">Стежити за ціною</button>
+                        </div>
+                        
+                        <div class="card-01-code">Код: 50663</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variant 02 -->
+            <div class="card-wrapper">
+                <div class="variant-label">02 — Premium Luxury</div>
+                <div class="card-02">
+                    <div class="card-02-header">
+                        <span class="card-02-sku">SKU: 50663</span>
+                        <button class="card-02-favorite">☆</button>
+                    </div>
+                    
+                    <div class="card-02-image-area">
+                        <div class="card-02-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="20" y="15" width="60" height="70" rx="3" stroke="#d4af37" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="15" stroke="#d4af37" stroke-width="2"/>
+                                <line x1="50" y1="35" x2="50" y2="65" stroke="#d4af37" stroke-width="2"/>
+                                <line x1="35" y1="50" x2="65" y2="50" stroke="#d4af37" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="card-02-badges-corner">
+                            <span class="badge-02">Хіт</span>
+                            <span class="badge-02">-40%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-02-body">
+                        <h3 class="card-02-title">Дисплей LG E960 Nexus 4 із сенсором і панеллю</h3>
+                        
+                        <div class="card-02-rating-row">
+                            <div class="stars-02">★★★★★</div>
+                            <span class="reviews-02">2 відгуки</span>
+                        </div>
+                        
+                        <div class="card-02-price-display">
+                            <span class="price-02">560 ₴</span>
+                            <span class="old-price-02">930 ₴</span>
+                            <span class="discount-02">-40%</span>
+                        </div>
+                        
+                        <div class="card-02-color-selector">
+                            <div class="color-option-02 active" style="background: #000000;" data-color="black"></div>
+                            <div class="color-option-02" style="background: #f5f5f5;" data-color="white"></div>
+                            <div class="color-option-02" style="background: #2c3e50;" data-color="navy"></div>
+                        </div>
+                        
+                        <div class="card-02-status-badge">Немає в наявності</div>
+                        
+                        <div class="card-02-actions-grid">
+                            <button class="btn-02">Швидкий перегляд</button>
+                            <button class="btn-02">Порівняти</button>
+                            <button class="btn-02">В обране</button>
+                            <button class="btn-02">Стежити</button>
+                            <button class="btn-02 btn-02-full">Купити в 1 клік</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variant 03 -->
+            <div class="card-wrapper">
+                <div class="variant-label">03 — Tech Futuristic</div>
+                <div class="card-03">
+                    <div class="card-03-corner-decor"></div>
+                    
+                    <div class="card-03-image-section">
+                        <div class="card-03-grid-bg"></div>
+                        <div class="card-03-hologram"></div>
+                        <div class="card-03-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="20" y="15" width="60" height="70" rx="3" stroke="#00d4ff" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="15" stroke="#00d4ff" stroke-width="2"/>
+                                <line x1="50" y1="35" x2="50" y2="65" stroke="#00d4ff" stroke-width="2"/>
+                                <line x1="35" y1="50" x2="65" y2="50" stroke="#00d4ff" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="card-03-badges-tech">
+                            <span class="badge-03">ХІТ</span>
+                            <span class="badge-03">АКЦІЯ</span>
+                            <span class="badge-03">-40%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-03-content">
+                        <h3 class="card-03-title">Дисплей LG E960 Nexus 4 із сенсором і панеллю</h3>
+                        
+                        <div class="card-03-stats">
+                            <div class="stat-03">
+                                <div class="stat-value-03">5.0</div>
+                                <div class="stat-label-03">Рейтинг</div>
+                            </div>
+                            <div class="stat-03">
+                                <div class="stat-value-03">2</div>
+                                <div class="stat-label-03">Відгуки</div>
+                            </div>
+                            <div class="stat-03">
+                                <div class="stat-value-03">50663</div>
+                                <div class="stat-label-03">Код</div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-03-price-tech">
+                            <span class="price-03">560 ₴</span>
+                            <span class="old-price-03">930 ₴</span>
+                        </div>
+                        
+                        <div class="card-03-colors-tech">
+                            <div class="color-tech-03 active" style="background: #000000;" data-color="black"></div>
+                            <div class="color-tech-03" style="background: #ffffff; border: 1px solid #333;" data-color="white"></div>
+                            <div class="color-tech-03" style="background: #0a0a2e;" data-color="navy"></div>
+                        </div>
+                        
+                        <div class="card-03-status-tech">НЕМАЄ В НАЯВНОСТІ</div>
+                        
+                        <div class="card-03-buttons-tech">
+                            <button class="btn-03 btn-03-primary">КУПИТИ В 1 КЛІК</button>
+                            <button class="btn-03">ШВИДКИЙ ПЕРЕГЛЯД</button>
+                            <button class="btn-03">СТЕЖИТИ ЗА ЦІНОЮ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variant 04 -->
+            <div class="card-wrapper">
+                <div class="variant-label">04 — Glassmorphism</div>
+                <div class="card-04">
+                    <div class="card-04-bg-gradient"></div>
+                    
+                    <div class="card-04-image-glass">
+                        <div class="card-04-floating-bubbles">
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                            <div class="bubble"></div>
+                        </div>
+                        
+                        <div class="card-04-badges-glass">
+                            <span class="badge-04">Хіт</span>
+                            <span class="badge-04">Акція</span>
+                            <span class="badge-04">-40%</span>
+                        </div>
+                        
+                        <div class="card-04-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="20" y="15" width="60" height="70" rx="3" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                <circle cx="50" cy="50" r="15" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                <line x1="50" y1="35" x2="50" y2="65" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                <line x1="35" y1="50" x2="65" y2="50" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="card-04-content-glass">
+                        <h3 class="card-04-title">Дисплей LG E960 Nexus 4 із сенсором і панеллю</h3>
+                        
+                        <div class="card-04-rating-glass">
+                            <div class="stars-04">★★★★★</div>
+                            <span class="reviews-04">2 відгуки</span>
+                        </div>
+                        
+                        <div class="card-04-price-glass">
+                            <span class="price-04">560 грн</span>
+                            <span class="old-price-04">930 грн</span>
+                        </div>
+                        
+                        <div class="card-04-colors-glass">
+                            <div class="color-glass-04 active" style="background: #000000;" data-color="black"></div>
+                            <div class="color-glass-04" style="background: #ffffff;" data-color="white"></div>
+                            <div class="color-glass-04" style="background: #1a1a3e;" data-color="navy"></div>
+                        </div>
+                        
+                        <div class="card-04-status-glass">Немає в наявності</div>
+                        
+                        <div class="card-04-actions-glass">
+                            <button class="btn-04 btn-04-primary">Купити в 1 клік</button>
+                            <button class="btn-04">❤</button>
+                            <button class="btn-04">⚖</button>
+                        </div>
+                        
+                        <button class="btn-04" style="width: 100%;">Стежити за ціною</button>
+                        
+                        <div class="card-04-code-glass">Код: 50663</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variant 05 -->
+            <div class="card-wrapper">
+                <div class="variant-label">05 — Bold Asymmetric</div>
+                <div class="card-05">
+                    <div class="card-05-diagonal-bg"></div>
+                    
+                    <div class="card-05-badges-async">
+                        <span class="badge-05">Хіт</span>
+                        <span class="badge-05">Акція</span>
+                        <span class="badge-05">-40%</span>
+                    </div>
+                    
+                    <div class="card-05-content-asymmetric">
+                        <div class="card-05-left">
+                            <div>
+                                <div class="card-05-image-async">
+                                    <div class="card-05-placeholder">
+                                        <svg width="70" height="70" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="20" y="15" width="60" height="70" rx="3" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                            <circle cx="50" cy="50" r="15" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                            <line x1="50" y1="35" x2="50" y2="65" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                            <line x1="35" y1="50" x2="65" y2="50" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-05-icons">
+                                    <button class="icon-btn-05" title="В избранное">♡</button>
+                                    <button class="icon-btn-05" title="Сравнение">⚖</button>
+                                    <button class="icon-btn-05" title="Быстрый просмотр">👁</button>
+                                </div>
+                            </div>
+                            
+                            <div class="card-05-price-async">
+                                <span class="price-05">560₴</span>
+                                <span class="old-price-05">930₴</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card-05-right">
+                            <h3 class="card-05-title">Дисплей LG E960 Nexus 4 із сенсором і панеллю</h3>
+                            
+                            <div class="card-05-rating-async">
+                                <div class="stars-05">★★★★★</div>
+                                <span class="reviews-05">2 відгуки</span>
+                            </div>
+                            
+                            <div class="card-05-colors-async">
+                                <div class="color-async-05 active" style="background: #000000;" data-color="black"></div>
+                                <div class="color-async-05" style="background: #ffffff; border: 1px solid #ddd;" data-color="white"></div>
+                                <div class="color-async-05" style="background: #1a1a3e;" data-color="navy"></div>
+                            </div>
+                            
+                            <div class="card-05-status-async">Немає в наявності</div>
+                            
+                            <div class="card-05-actions-stack">
+                                <button class="btn-05 btn-05-primary">Купити в 1 клік</button>
+                                <button class="btn-05 btn-05-secondary">Стежити за ціною</button>
+                                <button class="btn-05 btn-05-ghost">Швидкий перегляд</button>
+                            </div>
+                            
+                            <div class="card-05-code">50663</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Color selection functionality for all variants
+        document.querySelectorAll('[data-color]').forEach(colorDot => {
+            colorDot.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('[data-color]').forEach(dot => dot.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Favorite button toggle
+        document.querySelectorAll('.card-02-favorite').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = this.textContent === '☆' ? '♥' : '☆';
+                this.style.color = this.textContent === '♥' ? '#ff6b6b' : '#d4af37';
+            });
+        });
+
+        // Action buttons hover effects
+        document.querySelectorAll('.action-btn-01, .icon-btn-05').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Quick view simulation
+        document.querySelectorAll('[title="Быстрый просмотр"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Швидкий перегляд товару: Дисплей LG E960 Nexus 4');
+            });
+        });
+
+        // Price watch functionality
+        document.querySelectorAll('.btn-secondary-01, .btn-03, .btn-04, .btn-05-secondary').forEach(btn => {
+            if (btn.textContent.includes('Стежити') || btn.textContent.includes('СТЕЖИТИ')) {
+                btn.addEventListener('click', function() {
+                    alert('Ви будете отримувати сповіщення про зміну ціни!');
+                });
+            }
+        });
+
+        // Buy in 1 click
+        document.querySelectorAll('.btn-primary-01, .btn-02-full, .btn-03-primary, .btn-04-primary, .btn-05-primary').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Форма швидкого замовлення буде відкрита тут!');
+            });
+        });
+
+        // Add to comparison
+        document.querySelectorAll('[title="Сравнение"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Товар додано до порівняння!');
+            });
+        });
+
+        // Add to favorites
+        document.querySelectorAll('[title="В избранное"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.textContent = '♥';
+                this.style.background = '#ff6b6b';
+                this.style.color = 'white';
+                alert('Товар додано до обраного!');
+            });
+        });
+    </script>
+</body>
+</html>
